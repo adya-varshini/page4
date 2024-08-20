@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forbidden Temptation</title>
+    <style>
+      body {
+        background-color: #2c2f35;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #e6c8bc;
+      }
+      header {
+        background-color: black;
+        box-shadow: 0 0 25px #966755;
+        padding: 20px 8%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+      }
+      header h1 {
+        font-size: 2em;
+        color: #e6c8bc;
+        text-shadow: 2px 2px #6b3e26;
+        margin: 0;
+      }
+
+      header ul {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      header ul li {
+        margin-left: 20px;
+      }
+      header ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 17px;
+      }
+      header ul li a:hover {
+        border: whitesmoke solid;
+        opacity: 0.7;
+        border-radius: 25px;
+        padding: 10px;
+        color: black;
+        background-color: #dab6a9;
+        box-shadow: 0 0 25px #c19a8b;
+      }
+      .shopping {
+        position: relative;
+        margin-left: 20px;
+      }
+      .shopping img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        box-shadow: 0 0 15px rgba(230, 200, 188, 0.7);
+        cursor: pointer;
+      }
+      .shopping .quantity {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        background: red;
+        border-radius: 50%;
+        color: white;
+        padding: 5px 10px;
+        font-size: 0.8em;
+        font-weight: bold;
+      }
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 100px auto 40px;
+        padding: 20px;
+        background-color: #2c2f35;
+        box-shadow: 0 0 25px rgba(230, 200, 188, 0.5);
+        border-radius: 8px;
+        opacity: 0.95;
+        display: flex;
+        justify-content: space-between;
+      }
+      .list {
+        flex: 1;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+      .list .item {
+        background-color: #3a3f45;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+      .list .item:hover {
+        transform: translateY(-10px);
+      }
+      .list .item img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(230, 200, 188, 0.7);
+        margin-bottom: 15px;
+      }
+      .list .item .title {
+        font-weight: bold;
+        margin-bottom: 10px;
+        font-size: 1.2em;
+      }
+      .list .item .price {
+        margin-bottom: 20px;
+        font-size: 1.1em;
+      }
+      .list .item button {
+        background-color: #6b3e26;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .list .item button:hover {
+        background-color: #523229;
+      }
+      .card {
+        width: 300px;
+        background-color: #453e3b;
+        padding: 20px;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+        overflow-y: auto;
+        border-radius: 8px;
+      }
+      .card h1 {
+        color: rgba(173, 128, 128, 0.932);
+        font-weight: normal;
+        margin: 0 0 20px;
+      }
+      .listCard {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .listCard li {
+        display: grid;
+        grid-template-columns: 80px 1fr 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 10px;
+        align-items: center;
+        color: #fff;
+      }
+      .listCard li img {
+        width: 100%;
+        border-radius: 8px;
+      }
+      .listCard li button {
+        background-color: transparent;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 1.2em;
+      }
+      .listCard .count {
+        margin: 0 10px;
+        text-align: center;
+        font-weight: bold;
+      }
+      .checkOut {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        background-color: #966755;
+        border-bottom: 1px solid #aaa;
+        border-radius: 3px;
+        margin: 10px 10px;
+      }
+      .checkOut div {
+        background-color: rgba(194, 130, 130, 0.932);
+        text-align: center;
+        font-weight: bold;
+        cursor: pointer;
+        flex: 1;
+        padding: 3px;
+      }
+      .checkOut .closeShopping {
+        background-color: #1c1f25;
+        color: white;
+      }
+      .header-content .logo {
+        opacity: 0.7;
+        width: 90px;
+        border-radius: 60px;
+        border-color: black;
+        transition: 0.3s;
+        padding: 10px;
+      }
+
+      @media screen and (max-width: 768px) {
+        header ul li a {
+          font-size: 12px;
+        }
+        header img {
+          width: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <img src="Pictures/lo.png" class="logo" width="100" />
+        <ul>
+          <li><a href="C:\Users\Adya\c.html">HOME</a></li>
+          <li><a href="C:\Users\Adya\sp1.html">F&T CORNER</a></li>
+          <li><a href="C:\Users\Adya\c1.html">ABOUT</a></li>
+          <li><a href="C:\Users\Adya\c6.html">ECOCHOCO</a></li>
+          <li><a href="C:\Users\Adya\e.html">SHOP</a></li>
+          <li><a href="C:\Users\Adya\c4.html">CONTACT</a></li>
+        </ul>
+      </div>
+    </header>
+    <div class="container">
+      <div class="list"></div>
+      <div class="shopping">
+        <img
+          src="https://img.freepik.com/premium-vector/white-icon-buying-black-background_992397-20850.jpg?w=740"
+          alt="Shopping Cart"
+        />
+        <span class="quantity">0</span>
+      </div>
+      <div class="card">
+        <h1>Shopping Cart</h1>
+
+        <ul class="listCard"></ul>
+        <div class="checkOut">
+          <div class="total">₹0</div>
+          <div class="closeShopping">Close</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let openShopping = document.querySelector(".shopping");
+      let closeShopping = document.querySelector(".closeShopping");
+      let list = document.querySelector(".list");
+      let listCard = document.querySelector(".listCard");
+      let body = document.querySelector("body");
+      let total = document.querySelector(".total");
+      let quantity = document.querySelector(".quantity");
+
+      openShopping.addEventListener("click", () => {
+        body.classList.add("active");
+      });
+
+      closeShopping.addEventListener("click", () => {
+        body.classList.remove("active");
+      });
+
+      let products = [
+        {
+          id: 1,
+          name: "Dark Bites",
+          image:
+            "https://img.freepik.com/free-photo/chocolate-truffles-with-cocoa-powder_23-2148019567.jpg?t=st=1724014936~exp=1724018536~hmac=5e95f713ed64f83ca31aef79010fdef152be019a6f4d8f46eb785f12d04b6421&w=740",
+          price: 130,
+        },
+        {
+          id: 2,
+          name: "Choco Crunch",
+          image:
+            "https://img.freepik.com/premium-photo/chocolate-waffers-parchment-wooden-background_773922-63766.jpg?w=1060",
+          price: 170,
+        },
+        {
+          id: 3,
+          name: "Candy Chocs",
+          image:
+            "https://img.freepik.com/premium-photo/heart-made-chocolates-chocolate-chips-grey-background-top-view-valentine-s-day_810623-1483.jpg?w=826",
+          price: 110,
+        },
+        {
+          id: 4,
+          name: "Cocoa Slabs",
+          image:
+            "https://img.freepik.com/free-photo/slice-tasty-dessert-with-cream_23-2147802385.jpg?t=st=1724011979~exp=1724015579~hmac=ddf5804cdb95628140a3fc1ee8c2cc5ba0cc15b5e38afd7f3d3d526bf8c445f8&w=360",
+          price: 210,
+        },
+        {
+          id: 5,
+          name: "Choco Orbs",
+          image:
+            "https://img.freepik.com/premium-photo/chocolate-truffles-with-coconut-coating_944420-34571.jpg?w=900",
+          price: 260,
+        },
+        {
+          id: 6,
+          name: "Luxe Bars",
+          image:
+            "https://img.freepik.com/premium-photo/chocolate-bars-with-raisins-nuts-white-background_1015980-697409.jpg?w=740",
+          price: 220,
+        },
+      ];
+
+      let listCards = [];
+      function initApp() {
+        products.forEach((product, index) => {
+          let itemDiv = document.createElement("div");
+          itemDiv.classList.add("item");
+          itemDiv.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <div class="title">${product.name}</div>
+                    <div class="price">₹${product.price.toLocaleString()}</div>
+                    <button onclick="addToCart(${index})">Add To Cart</button>`;
+          list.appendChild(itemDiv);
+        });
+      }
+      initApp();
+
+      function addToCart(index) {
+        if (!listCards[index]) {
+          listCards[index] = { ...products[index], quantity: 1 };
+        }
+        updateCart();
+      }
+
+      function updateCart() {
+        listCard.innerHTML = "";
+        let totalPrice = 0;
+        let totalQuantity = 0;
+        listCards.forEach((item, index) => {
+          if (item === null) return;
+
+          totalPrice += item.price * item.quantity;
+          totalQuantity += item.quantity;
+
+          let listItem = document.createElement("li");
+          listItem.innerHTML = `
+                    <div><img src="${item.image}" alt="${item.name}"></div>
+                    <div>${item.name}</div>
+                    <div>₹${item.price.toLocaleString()}</div>
+                    <div>
+                        <button onclick="changeQuantity(${index}, ${
+            item.quantity - 1
+          })">-</button>
+                        <div class="count">${item.quantity}</div>
+                        <button onclick="changeQuantity(${index}, ${
+            item.quantity + 1
+          })">+</button>
+                    </div>`;
+          listCard.appendChild(listItem);
+        });
+
+        total.innerText = `₹${totalPrice.toLocaleString()}`;
+        quantity.innerText = totalQuantity;
+      }
+
+      function changeQuantity(index, qty) {
+        if (qty <= 0) {
+          listCards[index] = null;
+        } else {
+          listCards[index].quantity = qty;
+          listCards[index].price = qty * products[index].price;
+        }
+        updateCart();
+      }
+    </script>
+  </body>
+</html>
