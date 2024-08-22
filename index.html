@@ -13,15 +13,7 @@
         padding: 0;
         color: #e6c8bc;
       }
-      header {
-        background-color: black;
-        box-shadow: 0 0 25px #966755;
-        padding: 20px 8%;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
+     
       .header-content {
         display: flex;
         align-items: center;
@@ -34,30 +26,51 @@
         text-shadow: 2px 2px #6b3e26;
         margin: 0;
       }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+      }
+
+      header img {
+        opacity: 0.7;
+        width: 90px;
+        border-radius: 60px;
+        border-color: black;
+        transition: 0.3s;
+        padding: 10px;
+      }
 
       header ul {
         display: flex;
-        margin: 0;
-        padding: 0;
-        list-style: none;
+        align-items: center;
+        margin-right: 20px;
       }
+
       header ul li {
+        list-style: none;
         margin-left: 20px;
       }
+
       header ul li a {
         text-decoration: none;
         color: #fff;
         font-size: 17px;
+        padding: 8px 15px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
       }
+
       header ul li a:hover {
         border: whitesmoke solid;
         opacity: 0.7;
         border-radius: 25px;
-        padding: 10px;
         color: black;
         background-color: #dab6a9;
         box-shadow: 0 0 25px #c19a8b;
       }
+     
       .shopping {
         position: relative;
         margin-left: 20px;
